@@ -15,6 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import UpdateIcon from '@mui/icons-material/Update';
 import DeleteIcon from '@mui/icons-material/Delete';
 import MarkChatReadIcon from '@mui/icons-material/MarkChatRead';
@@ -56,6 +57,13 @@ function AdminMenu(props) {
             <MarkChatReadIcon />
           </ListItemIcon>
           <Link to="../admin/approveScreen" style={{ textDecoration: 'none', color: 'black' }}> <ListItemText primary="Approve workers request" /></Link>
+        </ListItemButton>
+        <ListItemButton>
+          <ListItemIcon>
+            <GroupAddIcon />
+          </ListItemIcon>
+          <Link to="../admin/AddSupervisor" style={{ textDecoration: "none", color: 'black' }}>
+            <ListItemText primary="Add Supervisor" /></Link>
         </ListItemButton>
         <ListItemButton>
           <ListItemIcon>
