@@ -46,7 +46,7 @@ const {success} = Complaint
 
   useEffect(() => {
     if (!roles)
-      dispatch(getRoles(['admin', 'resident']))
+      dispatch(getRoles(['admin', 'resident', 'supervisor']))
     if (value !== '') {
       dispatch(getAllServices([value]))
       setServicesChecked([])

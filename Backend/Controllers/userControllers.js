@@ -9,10 +9,11 @@ import sendEmail from "../utils/emailSender.js";
 //@route /api/users/register
 //@access PUBLIC
 const registerUser = expressAsyncHandler(async (req, res) => {
-  const { firstName, lastName, email, phoneNumber, address, password } =
+  const { firstName, email, phoneNumber, address, password, userRole } =
     req.body;
+    // lastName
   //validate user input
-  if (!(firstName && lastName && email && phoneNumber && address && password))
+  if (!(firstName && email && phoneNumber && address && password))
     res.status(400).send("All inputs are required !!");
   else {
     const userExists = await User.findOne({ email });
@@ -23,11 +24,12 @@ const registerUser = expressAsyncHandler(async (req, res) => {
     const encryptedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
       firstName,
-      lastName,
+      lastName : 'userRole',
       email,
       phoneNumber,
       address,
       password: encryptedPassword,
+      userRole,
     });
     if (user) {
       res.status(201).json({

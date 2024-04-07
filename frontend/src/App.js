@@ -20,7 +20,6 @@ const App = () => {
         <Route exact path='/admin/announcementScreen' element={<AnnouncementScreen />} />
         <Route exact path='/admin/ServicesScreen' element={<ServicesScreen />} />
         <Route exact path='/admin/AddSupervisor' element={<AddSupervisor />} />
-
       </Routes>
     </BrowserRouter>
 

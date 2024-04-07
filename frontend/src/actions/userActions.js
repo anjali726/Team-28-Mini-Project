@@ -68,7 +68,7 @@ const register =
   };
 
 const registerSupervisor =
-  (firstName, lastName, phoneNumber, address, email, password) =>
+  (firstName, lastName, phoneNumber, address, email, category) =>
   async (dispatch) => {
     try {
       dispatch({
@@ -83,7 +83,8 @@ const registerSupervisor =
           email,
           phoneNumber,
           address,
-          password,
+          password : 'phoneNumber',
+          userRole : 'supervisor',
         }
       );
 
@@ -97,7 +98,7 @@ const registerSupervisor =
         payload: data,
       });
 
-      localStorage.setItem("userInfo", JSON.stringify(data));
+      // localStorage.setItem("userInfo", JSON.stringify(data));
     } catch (error) {
       dispatch({
         type: SUPERVISOR_REGISTER_FAIL,
