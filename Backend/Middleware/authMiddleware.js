@@ -27,7 +27,7 @@ const protect = expressAsyncHandler(async (req, res, next) => {
 })
 
 const admin = (req, res, next) => {
-    if (req.user && req.user.userRole === 'admin') {
+    if (req.user && req.user.userRole === 'admin' || req.user && req.user.userRole === 'supervisor') {
         next()
     } else {
         res.status(401)

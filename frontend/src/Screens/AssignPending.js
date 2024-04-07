@@ -37,11 +37,11 @@ const AssignPending = () => {
     if (!userInfo)
       navigate('login')
     if (!roles)
-      dispatch(getRoles(['admin', 'resident']))
+      dispatch(getRoles(['admin', 'resident', 'supervisor']))
     if (!complaints)
       dispatch(getComplaintsAdmin(['Pending'], [], ['Custom','Standard']))
     if (!workers)
-      dispatch(getWorkers(['admin', 'resident']))
+      dispatch(getWorkers(['admin', 'resident', 'supervisor']))
   }, [])
 
   const [open, setOpen] = React.useState(false);
