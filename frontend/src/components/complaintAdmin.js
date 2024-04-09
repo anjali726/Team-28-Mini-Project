@@ -17,10 +17,9 @@ import Message from "./Message";
 import TooltipComponent from "./TooltipComponent";
 import Stack from '@mui/material/Stack';
 
-const ComplaintAdmin = ({ complaintData, allWorkers }) => {
+const ComplaintAdmin = ({ complaintData, allWorkers,  }) => {
   const dispatch = useDispatch();
   const { success } = useSelector((state) => state.updateComplaintAssigned);
-
   const workers = allWorkers.filter(
     (worker) => worker.userRole === complaintData.issueType
   );

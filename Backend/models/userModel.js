@@ -29,6 +29,9 @@ const userSchema = mongoose.Schema({
     userRole: {
         type: String,
         default: "resident"
+    },
+    superVisor:{
+        type: String,
     }
 },{
         timestamps: true

@@ -9,10 +9,10 @@ import sendEmail from "../utils/emailSender.js";
 //@route /api/users/register
 //@access PUBLIC
 const registerUser = expressAsyncHandler(async (req, res) => {
-  const { firstName, email, phoneNumber, address, password, userRole } =
+  const { firstName, lastName, email, phoneNumber, address, password, userRole, superVisor } =
     req.body;
-    // lastName
   //validate user input
+  console.log(password)
   if (!(firstName && email && phoneNumber && address && password))
     res.status(400).send("All inputs are required !!");
   else {
@@ -24,12 +24,13 @@ const registerUser = expressAsyncHandler(async (req, res) => {
     const encryptedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
       firstName,
-      lastName : 'userRole',
+      lastName,
       email,
       phoneNumber,
       address,
       password: encryptedPassword,
       userRole,
+      superVisor,
     });
     if (user) {
       res.status(201).json({
@@ -41,6 +42,7 @@ const registerUser = expressAsyncHandler(async (req, res) => {
         address: user.address,
         token: generateToken(user.email),
         userRole: user.userRole,
+        superVisor : user.superVisor
       });
     } else {
       res.status(400);
@@ -70,6 +72,7 @@ const authUser = expressAsyncHandler(async (req, res) => {
         address: user.address,
         userRole: user.userRole,
         token: generateToken(user.email),
+        superVisor: user.superVisor,
       });
     } else {
       res.status(401);

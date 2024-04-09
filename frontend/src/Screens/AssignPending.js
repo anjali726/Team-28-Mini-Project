@@ -92,7 +92,9 @@ const AssignPending = () => {
 
       <Typography variant="h4" sx={{ textAlign: "center", color: "green" }}>PENDING COMPLAINTS</Typography>
       {loading && <Loader />}
-      {complaints && workers &&complaints.map(complaint => (<ComplaintAdmin complaintData={complaint} key={complaint.id} allWorkers={workers}/>))}
+      {userInfo.userRole === 'admin' && complaints && workers &&complaints.map(complaint => (<ComplaintAdmin complaintData={complaint} key={complaint.id} allWorkers={workers}/>))}
+      {userInfo.userRole === 'supervisor' && complaints && workers &&complaints.map(complaint => ( userInfo.superVisor === complaint.issueType && <ComplaintAdmin userInfo={userInfo} complaintData={complaint} key={complaint.id} allWorkers={workers}/>))}
+
     </div>
 
   )

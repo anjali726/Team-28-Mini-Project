@@ -56,8 +56,7 @@ const AddSupervisor = () => {
     email: "",
     phoneNumber: "",
     address: "",
-    category: "",
-
+    superVisor: "",
   });
 
   const handleChange = (e) => {
@@ -65,6 +64,12 @@ const AddSupervisor = () => {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+    if(inputs.phoneNumber){
+      setInputs((prevState) => ({
+        ...prevState,
+        'password': inputs.phoneNumber,
+      }));
+    }
   };
 
   useEffect(() => {
@@ -83,7 +88,8 @@ const AddSupervisor = () => {
           inputs.phoneNumber,
           inputs.address,
           inputs.email,
-          inputs.category
+          inputs.superVisor,
+          inputs.password
         )
       );
   };
@@ -222,17 +228,17 @@ const AddSupervisor = () => {
                       sx={{ width: "99%", marginTop: "2%" }}
                       variant="outlined"
                     >
-                      <InputLabel htmlFor="category">Category</InputLabel>
+                      <InputLabel htmlFor="superVisor">Supervisor Role</InputLabel>
                       <Select
-                        id="category"
-                        value={inputs.category}
+                        id="superVisor"
+                        value={inputs.superVisor}
                         onChange={handleChange}
-                        label="Category"
-                        name="category"
+                        label="superVisor"
+                        name="superVisor"
                       >
                         <MenuItem value="Civil">Civil</MenuItem>
-                        <MenuItem value="General">General</MenuItem>
                         <MenuItem value="Electrical">Electrical</MenuItem>
+                        <MenuItem value="General">General</MenuItem>
                       </Select>
                     </FormControl>
                     <Button

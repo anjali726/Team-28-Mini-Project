@@ -68,7 +68,7 @@ const register =
   };
 
 const registerSupervisor =
-  (firstName, lastName, phoneNumber, address, email, category) =>
+  (firstName, lastName, phoneNumber, address, email, superVisor, password) =>
   async (dispatch) => {
     try {
       dispatch({
@@ -83,8 +83,9 @@ const registerSupervisor =
           email,
           phoneNumber,
           address,
-          password : 'phoneNumber',
+          password,
           userRole : 'supervisor',
+          superVisor
         }
       );
 
