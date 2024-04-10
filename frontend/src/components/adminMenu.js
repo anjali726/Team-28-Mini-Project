@@ -104,6 +104,7 @@ function AdminMenu(props) {
             <ListItemText primary="Anouncements" />
           </Link>
         </ListItemButton>
+        {userInfo.userRole !== "supervisor" && (
         <ListItemButton>
           <ListItemIcon>
             <SupportAgentIcon />
@@ -115,6 +116,7 @@ function AdminMenu(props) {
             <ListItemText primary="Standard Services" />
           </Link>
         </ListItemButton>
+        )}
       </List>
       {/* </Box> */}
     </div>
