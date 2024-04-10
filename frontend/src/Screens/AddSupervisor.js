@@ -236,9 +236,9 @@ const AddSupervisor = () => {
                         label="superVisor"
                         name="superVisor"
                       >
-                        <MenuItem value="Civil">Civil</MenuItem>
-                        <MenuItem value="Electrical">Electrical</MenuItem>
-                        <MenuItem value="General">General</MenuItem>
+                        <MenuItem value="plumber">Civil</MenuItem>
+                        <MenuItem value="electrician">Electrical</MenuItem>
+                        <MenuItem value="carpenter">Carpenter</MenuItem>
                       </Select>
                     </FormControl>
                     <Button
