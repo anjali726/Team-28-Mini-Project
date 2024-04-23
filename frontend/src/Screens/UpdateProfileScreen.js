@@ -20,7 +20,7 @@ import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import RegisterComplaint from "../components/RegisterComplaint";
 import Header from '../components/header.js'
 
-const ResidentScreen = () => {
+const UpdateProfileScreen = () => {
 
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
@@ -92,7 +92,8 @@ const ResidentScreen = () => {
   return (
     <div>
       <Header />
-      {/* {message && <Message severity="error" message={message} open={true} />}
+      
+      {message && <Message severity="error" message={message} open={true} />}
       {success && <Message severity="success" message="Profile Updated" open={true} />}
       <Grid container direction="row" spacing={2}>
         <Grid item xs md={4.5} sx={{ textAlign: "center", margin: "6% 2% 0 2%" }}>
@@ -268,7 +269,7 @@ const ResidentScreen = () => {
 
             Show Previous complaints
           </Button>
-        </Grid> */}
+        </Grid>
         {/* <Divider orientation="vertical" flexItem={true} />
         <Grid item md={5} sx={{ margin: "6% 0 0 0" }}>
           <Typography
@@ -301,10 +302,10 @@ const ResidentScreen = () => {
             REGISTER A COMPLAINT
           </Typography>
           <RegisterComplaint />
-        </Grid>
-      </Grid> */}
+        </Grid> */}
+      </Grid>
     </div>
   );
 };
 
-export default ResidentScreen;
+export default UpdateProfileScreen;

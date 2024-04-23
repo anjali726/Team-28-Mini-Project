@@ -7,6 +7,7 @@ import AssignPending from "./Screens/AssignPending";
 import AnnouncementScreen from './Screens/AnnouncementScreen';
 import ServicesScreen from './Screens/ServicesScreen'
 import AddSupervisor from "./Screens/AddSupervisor";
+import UpdateProfileScreen from "./Screens/UpdateProfileScreen";
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,6 +16,8 @@ const App = () => {
         <Route exact path="/login" element={<LoginScreen />} />
         <Route exact path="/signup" element={<SignUpScreen />} />
         <Route exact path="/resident/homePage" element={<ResidentScreen />} />
+        <Route exact path="/resident/UpdateProfile" element={<UpdateProfileScreen />} />
+        {/* <Route exact path="/resident/ComplainProfile" element={<ComplainProfileScreen />} /> */}
         <Route exact path="/admin/AssignPending" element={<AssignPending />} />
         <Route exact path="/resident/complaints" element={<ComplaintScreen />} />
         <Route exact path='/admin/announcementScreen' element={<AnnouncementScreen />} />
