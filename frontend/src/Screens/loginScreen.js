@@ -40,8 +40,20 @@ const LoginScreen = () => {
   const navigate = useNavigate()
   const { loading, userInfo, error } = useSelector(state => state.userLogin)
 
+  // useEffect(() => {
+  //   if (userInfo) navigate("/resident/homePage");
+  // }, [navigate, userInfo]);
+
+  
   useEffect(() => {
-    if (userInfo) navigate("/resident/homePage");
+    if (userInfo) {
+      // Check if the user is an admin or not
+      if (userInfo.userRole === "admin") {
+        navigate("/admin/AssignPending"); // Navigate to admin dashboard
+      } else {
+        navigate("/resident/homePage"); // Navigate to user's home page
+      }
+    }
   }, [navigate, userInfo]);
 
   const handleSubmit = e => {
@@ -57,7 +69,7 @@ const LoginScreen = () => {
     });
   };
   return (
-    <div style={{ backgroundColor: "#d3ebd3", margin: 0, height: "100vh" }}>
+    <div style={{ backgroundColor: "rgb(150 195 154)", margin: 0, height: "100vh" }}>
       {error && <Message severity="error" message={error} open={true} />}
       <Grid container>
         <Grid item md={6} xs={12}>
@@ -71,12 +83,12 @@ const LoginScreen = () => {
               margin="auto"
               marginTop={"16%"}
               padding={5}
-              borderRadius={5}
+              borderRadius={2}
               style={{ backgroundColor: "white" }}
-              boxShadow={"5px 5px 10px #ccc"}
+              //boxShadow={"5px 5px 10px #ccc"}
               sx={{
                 ":hover": {
-                  boxShadow: "10px 10px 20px #ccc",
+                  boxShadow: "4px 4px 8px #ccc",
                 },
               }}
             >
@@ -141,13 +153,13 @@ const LoginScreen = () => {
                 type="submit"
                 sx={{
                   marginTop: "3%",
-                  backgroundColor: "#1b5e20",
+                  backgroundColor: "#557d45",
                   width: "97%",
                   padding: 1,
-                  color: "#e8eaf6",
+                  color: "white",
                   ":hover": {
-                    boxShadow: "5px 5px 10px #388e3c",
-                    backgroundColor: "#388e3c",
+                    boxShadow: "1px 1px 2px #388e3c",
+                    backgroundColor: "#396029",
                   },
                 }}
               >

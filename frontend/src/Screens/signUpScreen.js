@@ -100,12 +100,12 @@ const SignUpScreen = () => {
                 margin="auto"
                 marginTop={4}
                 padding={5}
-                borderRadius={5}
+                borderRadius={2}
                 style={{ backgroundColor: "white", height: 500 }}
-                boxShadow={"5px 5px 10px #ccc"}
+                //boxShadow={"2px 2px 5px #ccc"}
                 sx={{
                   ":hover": {
-                    boxShadow: "10px 10px 20px #ccc",
+                    boxShadow: "5px 5px 10px #ccc",
                   },
                 }}
               >

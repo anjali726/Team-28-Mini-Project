@@ -79,7 +79,12 @@ export default function Header() {
     navigate('/admin/AssignPending')
   }
 
-  
+  const handleUpdateProfile = () => {
+    navigate('/resident/UpdateProfile')
+  }
+  const handlePrevComplain = () => {
+    navigate('/resident/complaints')
+  }
   const Announcements = useSelector(state => state.getAllAnnouncements)
   const { announcements } = Announcements
 
@@ -162,8 +167,11 @@ export default function Header() {
             <Typography variant="h5" component="div" sx={{ flexGrow: 1, marginLeft: "10px" }} onClick={navigateHomePage}>
               BINARY CODERS
             </Typography>
+            {(userInfo.userRole === 'resident') && <Button color="inherit" onClick={handlePrevComplain}>Complains</Button>}
+            {(userInfo.userRole === 'resident' || userInfo.userRole === 'supervisor') && <Button color="inherit" onClick={handleUpdateProfile}>Update Profile</Button>}
             {(userInfo.userRole === 'admin' || userInfo.userRole === 'supervisor') && <Button color="inherit" onClick={handleAdminPage}>Dashboard</Button>}
             {userInfo.userRole === 'resident' && <Button color="inherit" onClick={handleJoinUs}>Announcements</Button>}
+            
             <Button color="inherit" onClick={handleLogOut}>LOGOUT</Button>
           </Toolbar>
         </AppBar>
@@ -171,3 +179,6 @@ export default function Header() {
     </div>
   );
 }
+
+
+
