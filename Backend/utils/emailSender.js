@@ -1,9 +1,13 @@
 import SibApiV3Sdk from "sib-api-v3-sdk";
 import { Status } from "../Constants/Constants.js";
 import User from "../models/userModel.js";
+import twilio from "twilio";
 
 const sendEmail = async (complaintData) => {
   try {
+    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+    const authToken = process.env.TWILIO_AUTH_TOKEN;
+    const client = twilio(accountSid, authToken);
     console.log("asjdjd", complaintData);
     const defaultClient = SibApiV3Sdk.ApiClient.instance;
     //Instantiate the client
@@ -85,7 +89,7 @@ const sendEmail = async (complaintData) => {
         userInfoMappingWithEmail[complaintData.createdBy].address
       } </b></span>
       <br>
-      <span>OTP Assigned to your complaint is : <b>${
+      <span>OTP Assigned to complaint is : <b>${
         complaintData.otpAssigned
       }</b>.<span>
       <br>
@@ -98,6 +102,25 @@ const sendEmail = async (complaintData) => {
         subject: "BinaryCoders - Complaint Info",
         htmlContent: htmlContent2,
       });
+      const mobile = process.env.MOBILE;
+
+      const WorkerSMS = `
+      You have been assigned an Complaint! Name :${
+        userInfoMappingWithEmail[complaintData.createdBy].firstName
+      },Phone Number : ${
+        userInfoMappingWithEmail[complaintData.createdBy].phoneNumber
+      },  Address :${
+        userInfoMappingWithEmail[complaintData.createdBy].address
+      }. OTP Assigned to complaint is : ${complaintData.otpAssigned}
+      `;
+      await client.messages
+        .create({
+          body: WorkerSMS,
+          from: "+13187025213",
+          to: mobile,
+        })
+        .then((message) => console.log(message.sid))
+        .done();
     }
   } catch (err) {
     console.log(err);

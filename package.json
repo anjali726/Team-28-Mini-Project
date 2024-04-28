@@ -27,7 +27,8 @@
     "mongoose": "^6.7.0",
     "otp-generator": "^4.0.0",
     "react-router-dom": "^6.4.2",
-    "sib-api-v3-sdk": "^8.4.2"
+    "sib-api-v3-sdk": "^8.4.2",
+    "twilio": "^5.0.4"
   },
   "devDependencies": {
     "concurrently": "^7.5.0",

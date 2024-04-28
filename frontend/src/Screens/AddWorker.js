@@ -57,8 +57,8 @@ const AddSupervisor = () => {
     email: "",
     phoneNumber: "",
     address: "",
+    userRole: "",
     superVisor: "",
-    userRole: "supervisor"
   };
 
   const [inputs, setInputs] = useState(initialInputs);
@@ -94,7 +94,7 @@ const AddSupervisor = () => {
           inputs.email,
           inputs.userRole,
           inputs.superVisor,
-          inputs.password,
+          inputs.password
         )
       );
       setInputs(initialInputs);
@@ -149,7 +149,7 @@ const AddSupervisor = () => {
                         marginTop: "1px",
                       }}
                     >
-                      Register Supervisor
+                      Add workers
                     </Typography>
                     <Grid container spacing={1} sx={{ marginTop: "1%" }}>
                       <Grid item md={6}>
@@ -234,16 +234,16 @@ const AddSupervisor = () => {
                       sx={{ width: "99%", marginTop: "2%" }}
                       variant="outlined"
                     >
-                      <InputLabel htmlFor="superVisor">Supervisor Role</InputLabel>
+                      <InputLabel htmlFor="userRole">Worker Role</InputLabel>
                       <Select
-                        id="superVisor"
-                        value={inputs.superVisor}
+                        id="userRole"
+                        value={inputs.userRole}
                         onChange={handleChange}
-                        label="superVisor"
-                        name="superVisor"
+                        label="userRole"
+                        name="userRole"
                       >
-                        <MenuItem value="plumber">Civil</MenuItem>
-                        <MenuItem value="electrician">Electrical</MenuItem>
+                        <MenuItem value="plumber">Plumber</MenuItem>
+                        <MenuItem value="electrician">Electrician</MenuItem>
                         <MenuItem value="carpenter">Carpenter</MenuItem>
                       </Select>
                     </FormControl>

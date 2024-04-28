@@ -45,9 +45,12 @@ const ComplaintAdmin = ({ complaintData, allWorkers }) => {
   const handleAssign = () => {
     dispatch(updateComplaintAssigned(complaintData.id, assignTo));
     window.location.reload();
-  };
+  }
+  console.log(complaintData)
+
   return (
     <div>
+      
       {success && (
         <Message severity="success" open={true} message="Complaint Assigned" />
       )}

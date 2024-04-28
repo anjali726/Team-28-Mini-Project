@@ -5,6 +5,9 @@ import {
   SUPERVISOR_REGISTER_REQUEST,
   SUPERVISOR_REGISTER_SUCCESS,
   SUPERVISOR_REGISTER_FAIL,
+  GET_SUPERVISOR_REQUEST,
+  GET_SUPERVISOR_FAIL,
+  GET_SUPERVISOR_SUCCESS,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
@@ -68,7 +71,7 @@ const register =
   };
 
 const registerSupervisor =
-  (firstName, lastName, phoneNumber, address, email, superVisor, password) =>
+  (firstName, lastName, phoneNumber, address, email,userRole, superVisor, password) =>
   async (dispatch) => {
     try {
       dispatch({
@@ -84,7 +87,7 @@ const registerSupervisor =
           phoneNumber,
           address,
           password,
-          userRole : 'supervisor',
+          userRole : userRole,
           superVisor
         }
       );
@@ -94,15 +97,52 @@ const registerSupervisor =
         payload: data,
       });
 
-      dispatch({
-        type: USER_LOGIN_SUCCESS,
-        payload: data,
-      });
+      // dispatch({
+      //   type: USER_LOGIN_SUCCESS,
+      //   payload: data,
+      // });
 
       // localStorage.setItem("userInfo", JSON.stringify(data));
     } catch (error) {
       dispatch({
         type: SUPERVISOR_REGISTER_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
+
+  const getSupervisor = (excludedRoles) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: GET_SUPERVISOR_REQUEST,
+      });
+  
+      const {
+        userLogin: { userInfo },
+      } = getState();
+  
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+  
+      const { data } = await axios.get(
+        `http://localhost:5000/api/users/admin/getUsers?excludedRoles=${excludedRoles.join(
+          "&excludedRoles="
+        )}`,
+        config
+      );
+      dispatch({
+        type: GET_SUPERVISOR_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: GET_SUPERVISOR_FAIL,
         payload:
           error.response && error.response.data.message
             ? error.response.data.message
@@ -295,6 +335,7 @@ const getWorkers = (excludedRoles) => async (dispatch, getState) => {
 export {
   register,
   registerSupervisor,
+  getSupervisor,
   login,
   updateUserDetails,
   getUserDetails,

@@ -57,7 +57,7 @@ function AdminMenu(props) {
       </Typography>
       <Divider />
       <List>
-        <ListItemButton>
+        {/* <ListItemButton>
           <ListItemIcon>
             <MarkChatReadIcon />
           </ListItemIcon>
@@ -67,8 +67,23 @@ function AdminMenu(props) {
           >
             <ListItemText primary="Approve workers request" />
           </Link>
-        </ListItemButton>
+        </ListItemButton> */}
+        
         {userInfo.userRole !== "supervisor" && (
+          <>
+          
+          <ListItemButton>
+          <ListItemIcon>
+            <MarkChatReadIcon />
+          </ListItemIcon>
+          <Link
+            to="../admin/AddWorker"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <ListItemText primary="Add workers" />
+          </Link>
+        </ListItemButton>
+        
           <ListItemButton>
             <ListItemIcon>
               <GroupAddIcon />
@@ -80,6 +95,7 @@ function AdminMenu(props) {
               <ListItemText primary="Add Supervisor" />
             </Link>
           </ListItemButton>
+          </>
         )}
 
         <ListItemButton>
