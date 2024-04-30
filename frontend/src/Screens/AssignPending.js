@@ -69,7 +69,6 @@ const AssignPending = () => {
     dispatch(getComplaintsAdmin(['Pending'], departmentChecked, ['Custom','Standard']))
   };
 
-
   return (
     <div>
       <AdminMenu />

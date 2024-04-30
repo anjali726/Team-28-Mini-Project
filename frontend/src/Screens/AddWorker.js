@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import AdminMenu from "../components/adminMenu";
 import {
@@ -19,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { getRoles } from "../actions/userRoleActions";
 import Service from "../components/Service";
 import Loader from "../components/Loader";
+
 import { Link } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -31,7 +30,7 @@ import { registerSupervisor } from "../actions/userActions.js";
 const AddSupervisor = () => {
   const Roles = useSelector((state) => state.getRoles);
   const { roles } = Roles;
-  const [success, setSuccess] = useState(false); // Added success state
+
   // const { loading, services } = useSelector(state => state.getAllServices)
 
   const { service } = useSelector((state) => state.createService);
@@ -58,8 +57,8 @@ const AddSupervisor = () => {
     email: "",
     phoneNumber: "",
     address: "",
+    userRole: "",
     superVisor: "",
-    userRole: "supervisor"
   };
 
   const [inputs, setInputs] = useState(initialInputs);
@@ -79,20 +78,8 @@ const AddSupervisor = () => {
   };
 
   useEffect(() => {
-    if (userInfo){ 
-      setSuccess(true);
-      navigate("/resident/homePage");}
+    if (userInfo) navigate("/resident/homePage");
   }, [navigate, userInfo]);
-
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     setSuccess(true); // Updated success state when userInfo is available
-  //     setTimeout(() => {
-  //       navigate("/admin/AddSupervisor");
-  //     }, 3000); // Redirect after 3 seconds
-  //   }
-  // }, [navigate, userInfo]);
-
 
   const [width] = UseMediaQuery();
 
@@ -107,7 +94,7 @@ const AddSupervisor = () => {
           inputs.email,
           inputs.userRole,
           inputs.superVisor,
-          inputs.password,
+          inputs.password
         )
       );
       setInputs(initialInputs);
@@ -115,14 +102,6 @@ const AddSupervisor = () => {
 
   return (
     <div>
-      {/* Success message */}
-      {success && (
-        <Message
-          severity="success"
-          message="Supervisor Registered!"
-          open={true}
-        />
-      )}
       <AdminMenu />
       {loading && <Loader />}
       <Grid
@@ -170,7 +149,7 @@ const AddSupervisor = () => {
                         marginTop: "1px",
                       }}
                     >
-                      Register Supervisor
+                      Add workers
                     </Typography>
                     <Grid container spacing={1} sx={{ marginTop: "1%" }}>
                       <Grid item md={6}>
@@ -255,16 +234,16 @@ const AddSupervisor = () => {
                       sx={{ width: "99%", marginTop: "2%" }}
                       variant="outlined"
                     >
-                      <InputLabel htmlFor="superVisor">Supervisor Role</InputLabel>
+                      <InputLabel htmlFor="userRole">Worker Role</InputLabel>
                       <Select
-                        id="superVisor"
-                        value={inputs.superVisor}
+                        id="userRole"
+                        value={inputs.userRole}
                         onChange={handleChange}
-                        label="superVisor"
-                        name="superVisor"
+                        label="userRole"
+                        name="userRole"
                       >
-                        <MenuItem value="plumber">Civil</MenuItem>
-                        <MenuItem value="electrician">Electrical</MenuItem>
+                        <MenuItem value="plumber">Plumber</MenuItem>
+                        <MenuItem value="electrician">Electrician</MenuItem>
                         <MenuItem value="carpenter">Carpenter</MenuItem>
                       </Select>
                     </FormControl>
@@ -290,20 +269,8 @@ const AddSupervisor = () => {
           </Grid>
         </Grid>
       </Grid>
-       
     </div>
   );
 };
 
 export default AddSupervisor;
-
-
-
-
-
-
-
-
-
-
-
