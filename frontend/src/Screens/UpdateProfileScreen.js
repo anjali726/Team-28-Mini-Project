@@ -18,8 +18,10 @@ import Announcement from "../components/Announcement";
 import { getAllAnnouncements } from "../actions/announcementActions";
 import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import RegisterComplaint from "../components/RegisterComplaint";
-import Header from '../components/header.js'
+import Header from '../components/header.js';
+import Box from "@mui/material/Box";
 
+import logo192 from "../assets/student.jpg";
 const UpdateProfileScreen = () => {
 
   const [firstName, setFirstName] = useState("")
@@ -97,6 +99,7 @@ const UpdateProfileScreen = () => {
       {success && <Message severity="success" message="Profile Updated" open={true} />}
       <Grid container direction="row" spacing={2}>
         <Grid item xs md={4.5} sx={{ textAlign: "center", margin: "6% 2% 0 2%" }}>
+        <Box border={1} borderRadius={4} borderColor={'green'} p={2}>
           <div>
             <AccountCircleIcon fontSize="large" />
           </div>
@@ -258,54 +261,30 @@ const UpdateProfileScreen = () => {
               </Button>
             </Grid>
           </form>
-          <Button
-            type="submit"
-            variant="outlined" color="success" onClick={handlePreviousComplaints}
-            sx={{
-              marginTop: "2.5%",
-              width: "90%",
-              padding: 1,
-            }}>
-
-            Show Previous complaints
-          </Button>
+        
+          </Box>
         </Grid>
-        {/* <Divider orientation="vertical" flexItem={true} />
-        <Grid item md={5} sx={{ margin: "6% 0 0 0" }}>
-          <Typography
-            variant="h5"
-            textAlign={"center"}
-            padding={1}
-            sx={{
-              color: "#283593",
-              fontFamily: "Arizonia",
-              marginBottom: 0,
-              marginTop: "1px",
-            }}
-          >
-            ANNOUNCEMENTS
-          </Typography>
-          {announcements && announcements.map(announcement => <Announcement date={announcement.date.split("T")[0]} key={announcement._id}>{announcement.description}</Announcement>)}
-        </Grid> */}
-        {/* <Divider orientation="vertical" flexItem={true} />
-        <Grid item md={4.5} sx={{ margin: "6% 4% 0 6%" }}>
-          <DynamicFeedIcon sx={{ margin: "0 45%" }} fontSize="large" />
-          <Typography
-            variant="h5"
-            textAlign={"center"}
-            padding={1}
-            sx={{
-              color: "#283593",
-              fontFamily: "Arizonia",
-            }}
-          >
-            REGISTER A COMPLAINT
-          </Typography>
-          <RegisterComplaint />
-        </Grid> */}
+      
+
+
+        <Grid item xs={12} md={6}>
+          {/* Right Side: Image */}
+          <Box display="flex" justifyContent="flex-end" alignItems="flex-end" height="100%">
+            <img src={logo192} alt="Profile" style={{ width: "50%" }} />
+          </Box>
+        </Grid>
+
       </Grid>
     </div>
   );
 };
 
 export default UpdateProfileScreen;
+
+
+
+
+
+
+
+

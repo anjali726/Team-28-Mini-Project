@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"; //these are hooks
 import { Link } from "react-router-dom";
 import logo192 from "../assets/complaintLogo.jpg";
 import UseMediaQuery from "../utils/useMediaQuery";
@@ -22,7 +22,13 @@ import { useNavigate } from "react-router-dom";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 
+//hooks are functions that allow functional components to manage state, perform side effects, and access lifecycle methods. 
+
 const LoginScreen = () => {
+  //Hooks can only be called inside React function components.
+  //Hooks can only be called at the top level of a component.
+
+  //here inputs are the state variable and setInputs is the function
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
