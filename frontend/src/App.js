@@ -1,3 +1,7 @@
+//app.js is a common filename used for the main entry point or main application file in a Node.js or Express.js application.
+//In this file, you typically write the code that initializes and configures your application, sets up routes, middleware, and handles server startup.
+//here we are importing  React Router DOM and it is a library
+
 import SignUpScreen from "./Screens/signUpScreen";
 import LoginScreen from "./Screens/loginScreen";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
