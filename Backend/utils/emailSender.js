@@ -117,7 +117,7 @@ const sendEmail = async (complaintData) => {
         .create({
           body: WorkerSMS,
           from: "+13187025213",
-          to: mobile,
+          to: '+918955514233',
         })
         .then((message) => console.log(message.sid))
         .done();

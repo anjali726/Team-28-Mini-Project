@@ -45,10 +45,10 @@ const AddSupervisor = () => {
   const userLogin = useSelector((state) => state.userLogin);
 
   // const { userInfo } = userLogin
+  const [success, setSuccess] = useState(false);
 
   const [message, setMessage] = useState("");
   const userRegister = useSelector((state) => state.userRegister);
-
   const { loading, error, userInfo } = userRegister;
 
   const initialInputs = {
@@ -98,12 +98,17 @@ const AddSupervisor = () => {
         )
       );
       setInputs(initialInputs);
+      setSuccess(true);
+      // setTimeout(() => {
+      //   setSuccess(false);
+      // }, 3);
   };
 
   return (
     <div>
       <AdminMenu />
       {loading && <Loader />}
+      {success && <Message severity="success" message="Supervisor Added" open={true}/>}
       <Grid
         container
         spacing={2}
