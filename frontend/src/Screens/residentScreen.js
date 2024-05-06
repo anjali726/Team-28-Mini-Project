@@ -205,15 +205,17 @@ const ResidentScreen = () => {
   return (
     <div>
       <Header />
-      <Grid container spacing={2} justifyContent="center" >
+      <Grid container spacing={2} justifyContent="center">
         <Grid item xs={5} md={6} lg={4}>
           {/* Left Side */}
           <Box sx={{ display: 'flex', alignItems: 'center', marginTop: 32}}>
             {/* <AccountCircleIcon sx={{ fontSize: 64,color: 'green', mr: 2 }} /> */}
             <Box>
-              <Typography variant="h1" sx={{ color: 'green' }}>Welcome</Typography>
-              <Typography variant="h4" sx={{backgroundColor: 'green', padding: '6px', color: 'white'}}>{`${user.firstName} ${user.lastName}`}
-              </Typography>
+              <Typography variant="h3" sx={{ color: 'green' }}>Welcome </Typography>
+              <Typography variant="h4" sx={{backgroundColor: 'green', padding: '6px', color: 'white', display:"inline"}}>{`${user.firstName} ${user.lastName}`}</Typography>
+              <Typography variant="h5" sx={{ color: 'green', marginTop:"10px" }}>to Hostel Complaint Management System of MNNIT</Typography>
+
+              
               {/* <Typography variant="body2">{user.email}</Typography>
               <Typography variant="body2">{user.phoneNumber}</Typography>
               <Typography variant="body2">{user.address}</Typography> */}

@@ -46,7 +46,6 @@ const AddSupervisor = () => {
   const userLogin = useSelector((state) => state.userLogin);
 
   // const { userInfo } = userLogin
-  const [success, setSuccess] = useState(false);
 
   const [message, setMessage] = useState("");
   const userRegister = useSelector((state) => state.userRegister);

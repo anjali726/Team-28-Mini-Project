@@ -1,5 +1,5 @@
 {
-  "name": "complaint-box",
+  "name": "HCMS Hostel Complaint Box",
   "version": "1.0.0",
   "description": "MERN Complaint Box",
   "main": "server.js",
@@ -12,7 +12,7 @@
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d"
   },
-  "author": "Isha Agarwal",
+  "author": "Yogesh Kumar Sai",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.1.3",

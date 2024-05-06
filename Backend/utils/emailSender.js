@@ -32,11 +32,11 @@ const sendEmail = async (complaintData) => {
       <span>Your complaint is successfully solved by our worker.</span>
       <br>
       <h4>Regards</h4>
-      <h2>Binary Coders</h2>`;
+      <h2>HCMS</h2>`;
       await apiInstance.sendTransacEmail({
         sender,
         to: createdByReciever,
-        subject: "BinaryCoders - Complaint Info",
+        subject: "HCMS - Complaint Info",
         htmlContent: htmlContent1,
       });
     } else if (complaintData.status === Status.assigned) {
@@ -62,11 +62,11 @@ const sendEmail = async (complaintData) => {
       Please share it with our worker only at the time he arrives.<span>
       <br>
       <h4>Regards</h4>
-      <h2>Binary Coders</h2>`;
+      <h2>HCMS</h2>`;
       await apiInstance.sendTransacEmail({
         sender,
         to: createdByReciever,
-        subject: "BinaryCoders - Complaint Info",
+        subject: "HCMS - Complaint Info",
         htmlContent: htmlContent1,
       });
       const htmlContent2 = `<h3>Hey ${
@@ -94,12 +94,12 @@ const sendEmail = async (complaintData) => {
       }</b>.<span>
       <br>
       <h4>Regards</h4>
-      <h2>Binary Coders</h2>`;
+      <h2>HCMS</h2>`;
       const recievers = [{ email: complaintData.assignedTo }];
       await apiInstance.sendTransacEmail({
         sender,
         to: recievers,
-        subject: "BinaryCoders - Complaint Info",
+        subject: "HCMS - Complaint Info",
         htmlContent: htmlContent2,
       });
       const mobile = process.env.MOBILE;

@@ -18,6 +18,8 @@ import { useNavigate } from 'react-router-dom';
 import { getRoles } from '../actions/userRoleActions'
 import Announcement from "../components/Announcement";
 import { getAllAnnouncements } from "../actions/announcementActions";
+import logoImage from  "../assets/logoImage.png"
+
 
 
 export default function Header() {
@@ -165,7 +167,11 @@ export default function Header() {
           <Toolbar>
 
             <Typography variant="h5" component="div" sx={{ flexGrow: 1, marginLeft: "10px" }} onClick={navigateHomePage}>
-              BINARY CODERS
+            <img
+              src={logoImage}
+              alt="HCMS Logo"
+              style={{ maxHeight: "40px", marginRight: "10px", marginTop: "14px" }}
+            />
             </Typography>
             {(userInfo.userRole === 'resident') && <Button color="inherit" onClick={handlePrevComplain}>Complains</Button>}
             {(userInfo.userRole === 'resident' || userInfo.userRole === 'supervisor') && <Button color="inherit" onClick={handleUpdateProfile}>Update Profile</Button>}

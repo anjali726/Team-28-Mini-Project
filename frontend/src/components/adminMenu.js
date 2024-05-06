@@ -25,6 +25,7 @@ import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/userActions";
 import { useNavigate } from "react-router-dom";
+import logoImage from  "../assets/logoImage.png"
 
 const drawerWidth = 240;
 
@@ -53,7 +54,7 @@ function AdminMenu(props) {
   const drawer = (
     <div>
       <Typography variant="h5" sx={{ marginLeft: "40px", marginTop: "35px" }}>
-        ADMIN ROLES
+        ADMIN ROLE
       </Typography>
       <Divider />
       <List>
@@ -68,33 +69,32 @@ function AdminMenu(props) {
             <ListItemText primary="Approve workers request" />
           </Link>
         </ListItemButton> */}
-        
+
         {userInfo.userRole !== "supervisor" && (
           <>
-          
-          <ListItemButton>
-          <ListItemIcon>
-            <MarkChatReadIcon />
-          </ListItemIcon>
-          <Link
-            to="../admin/AddWorker"
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            <ListItemText primary="Add workers" />
-          </Link>
-        </ListItemButton>
-        
-          <ListItemButton>
-            <ListItemIcon>
-              <GroupAddIcon />
-            </ListItemIcon>
-            <Link
-              to="../admin/AddSupervisor"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <ListItemText primary="Add Supervisor" />
-            </Link>
-          </ListItemButton>
+            <ListItemButton>
+              <ListItemIcon>
+                <MarkChatReadIcon />
+              </ListItemIcon>
+              <Link
+                to="../admin/AddWorker"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <ListItemText primary="Add workers" />
+              </Link>
+            </ListItemButton>
+
+            <ListItemButton>
+              <ListItemIcon>
+                <GroupAddIcon />
+              </ListItemIcon>
+              <Link
+                to="../admin/AddSupervisor"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <ListItemText primary="Add Supervisor" />
+              </Link>
+            </ListItemButton>
           </>
         )}
 
@@ -121,17 +121,17 @@ function AdminMenu(props) {
           </Link>
         </ListItemButton>
         {userInfo.userRole !== "supervisor" && (
-        <ListItemButton>
-          <ListItemIcon>
-            <SupportAgentIcon />
-          </ListItemIcon>
-          <Link
-            to="../admin/ServicesScreen"
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            <ListItemText primary="Standard Services" />
-          </Link>
-        </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <SupportAgentIcon />
+            </ListItemIcon>
+            <Link
+              to="../admin/ServicesScreen"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <ListItemText primary="Standard Services" />
+            </Link>
+          </ListItemButton>
         )}
       </List>
       {/* </Box> */}
@@ -150,8 +150,8 @@ function AdminMenu(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
           backgroundColor: "#fff",
-          borderBottom: "#388e3c 3px solid",
-          color: "#388e3c",
+          borderBottom: "#0047AB 3px solid",
+          color: "#0047AB ",
         }}
       >
         <Toolbar>
@@ -171,7 +171,12 @@ function AdminMenu(props) {
             flexGrow={1}
             onClick={navigateHomePage}
           >
-            Binary Coders
+            <img
+              src={logoImage}
+              alt="HCMS Logo"
+              style={{ maxHeight: "40px", marginRight: "10px", marginTop: "14px" }}
+            />
+            
           </Typography>
           <Button color="inherit" onClick={handleLogOut}>
             LOGOUT

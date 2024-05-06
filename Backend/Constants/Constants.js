@@ -32,4 +32,4 @@ export const QueueRecordsStatues = {
   failed: "FAILED",
 };
 
-export const AdminEmail = 'admin@binarycoders.com'
+export const AdminEmail = 'admin@hcms.com'

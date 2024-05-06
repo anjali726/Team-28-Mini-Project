@@ -86,10 +86,10 @@ const AssignPending = () => {
       </Dialog>
       <Box
         m={1} display="flex" justifyContent="flex-end" alignItems="flex-end" >
-        <Button onClick={handleFILTER} variant="contained" color="success">FILTER</Button>
+        <Button onClick={handleFILTER} variant="contained" >FILTER</Button>
       </Box>
 
-      <Typography variant="h4" sx={{ textAlign: "center", color: "green" }}>PENDING COMPLAINTS</Typography>
+      <Typography variant="h4" sx={{ textAlign: "center", color: "#0047AB " }}>PENDING COMPLAINTS</Typography>
       {loading && <Loader />}
       {userInfo.userRole === 'admin' && complaints && workers &&complaints.map(complaint => (<ComplaintAdmin complaintData={complaint} key={complaint.id} allWorkers={workers}/>))}
       {userInfo.userRole === 'supervisor' && complaints && workers &&complaints.map(complaint => ( userInfo.superVisor === complaint.issueType && <ComplaintAdmin userInfo={userInfo} complaintData={complaint} key={complaint.id} allWorkers={workers}/>))}
